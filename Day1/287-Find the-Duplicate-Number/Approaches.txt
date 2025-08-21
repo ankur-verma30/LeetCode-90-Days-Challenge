@@ -1,0 +1,51 @@
+🧠Problem Statement Link: https://leetcode.com/problems/find-the-duplicate-number/description/
+
+🔄 Brute Force: Double For loop. Checking for every element check if its duplicate exist or not if not move to next element and loop it for that element.
+
+📝Approach 1: Using Set/Hashmap/Fixed Size Array
+❌ In the question that we should solve it in the constant extra space, but this approach uses O(n) space.
+👉 Take an integer set and iterate over the array
+👉 Check if the element is present inside the set or not.
+👉 If present return the element otherwise add the element.
+👉 On completing the iteration we will definitely get the duplicate element as there is always a duplicate element present in the array.
+
+Time Complexity: O(n)
+Space Complexity: O(n)
+
+📝Approach 2: Using Sorting
+❌ This modifies the original array, which is not allowed in this problem.
+👉 Sort the array
+👉 Iterate over the array and check if the current element is equal to the next element or the previous element.
+👉 If equal return the element.
+
+Time Complexity: O(nlogn)
+Space Complexity: O(1)
+
+📝Approach 3: Using Binary Search
+👉 Take low=1 and high=n-1.
+👉 Find mid and iterate in the array finding the count of the element less than or equal to mid.
+👉 If element count is less than or equal to mid update low=mid+1 as the duplicate element is not present in any number before or equal to mid i.e. [1,mid].
+👉 Else if count is greater than mid then store in the ans and update high=mid-1 to narrow down which element is duplicate. as the duplicate element is present in right side of the number from [mid,n-1].
+👉 Whe the Search is complete return the ans variable. 
+
+Time Complexity: O(nlogn)
+Space Complexity: O(1)
+
+📝Approach 4: Using Bit Manipulation
+👉 Take a freqArray of 32 size to count the frequency of the set bits of the number present in the input array
+👉 Iterate the loop from 1 to n-1 and subtract the bits of these numbers then there will be some remaining bits.
+👉 If in hte freqArray at any index, value is -ve means it is bigger value subtract from the second array and is replaced with the repeating element so ignore that number
+👉 And for all the positive value present in the freqArray add the binary value of that index to the ans and return the answer.
+
+Time Complexity: O(3*nlogn +32)
+Space Complexity: O(32)
+
+📝Approach 5 : Using Floyd's Tortoise and Hare (Cycle Detection)
+👉 Initialize two pointers, slow and fast. Set both to the first element of the array.
+👉 Use Do while loop Move slow by one step and fast by two steps until they meet.
+🧠 Why do while because initally fast and slow point to 0 so we cannot apply condition like (slow!=fast) we have to first move both the pointer one step to apply while loop. So better apply Do-while.
+👉 Once they meet, reset one pointer to the start i.e 0 and keep the other at the meeting point.
+👉 Move both pointers one step at a time until they meet again. The point where they meet is the duplicate number.
+
+Time Complexity: O(n)
+Space Complexity: O(1)

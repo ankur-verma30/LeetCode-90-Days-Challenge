@@ -1,0 +1,12 @@
+🧠Problem Statement Link: https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/
+
+📝Approach 1:Using Two Pointer
+👉 Take Two pointers j=0 and i=1.
+👉 Take a counter=1 as we have already one unique element at index 0.
+👉 Iterate from i=1 to n-1:
+    ✅If current element is equal to the element at j, then continue.
+    ✅Else, increment j, increment the counter and assign the value at i to j.
+👉 Return counter, Gives total number of unique elements.    
+
+Time Complexity: O(n)
+Space Complexity: O(1)

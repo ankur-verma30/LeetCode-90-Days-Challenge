@@ -1,0 +1,19 @@
+🧠Problem Statement Link: https://leetcode.com/problems/contains-duplicate/description/
+
+📝Approach 1: Using a Set
+👉 Take a set data structure
+👉 Iterate on the array and start adding the elements and before adding, check if the element already exist in the set or not.
+👉 If yes return true otherwise on completing the iteration return false.
+
+Time Complexity: O(n)
+Space Complexity: O(n)
+
+
+📝Approach 2: Using Sorting
+👉 Sort the array first
+👉 Iterate over the sorted array and start from 1 check if the current element is equal to previous element.
+👉 If yes then return true else on completing the iteration return false.
+
+Time Complexity: O(n log n + n)
+Space Complexity: O(1) (if we sort in place)
+
