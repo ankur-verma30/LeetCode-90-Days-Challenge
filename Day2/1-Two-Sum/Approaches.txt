@@ -1,0 +1,27 @@
+🧠 Problem Statment Link: https://leetcode.com/problems/two-sum/
+
+❌ Brute Force:
+Use two nested loops to check every pair of numbers in the array. If the sum of a pair equals the target, return their indices.
+
+📝Approach 1: Using Single Pass Hash Table
+👉 Create a hash table of integer, integer key value pair.
+👉 It will store the number along with its index
+👉 Iterate in the array and find if the target-nums[i] is present in the map or not.
+
+✅ Intution: target-nums[i]=nums[index] => nums[index] + nums[i] = target.
+
+👉 If it is present, return the current index and the index of the number in the map.
+
+Time Complexity: O(n)
+Space Complexity: O(n)
+
+📝Approach 2: Two Pass Hash Table
+
+👉 Create a hash table of integer, integer key value pair.
+👉 It will store the number along with its index.
+👉 Iterate in the hashmap and find the other value using the above formula 
+👉 If it is present, return the current index and the index of the number in the map.
+
+Time Complexity: O(2n)
+Space Complexity: O(n)
+

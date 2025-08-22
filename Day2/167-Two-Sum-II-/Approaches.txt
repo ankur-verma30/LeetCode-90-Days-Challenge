@@ -1,0 +1,47 @@
+🧠 Problem Statment Link: https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/
+
+❌ Brute Force:
+Use two nested loops to check every pair of numbers in the array. If the sum of a pair equals the target, return their indices.
+
+📝Approach 1: Two Pass Hash Table
+👉 Create a hash table of integer, integer key value pair.
+👉 It will store the number along with its index+1.
+👉 Iterate in the hashmap and find the other value using the formula target-nums[i].
+👉 If it is present, return the current index+1 and the index of the number +1 in the map.
+
+Time Complexity: O(2n)
+Space Complexity: O(n)
+
+📝Approach 2: One Pass Hash Table
+👉 Create a hash table of integer, integer key value pair.
+👉 It will store the number along with its index+1.
+👉 Iterate in the array and find if the target-nums[i] is present in the map or not.
+
+✅ Intution: target-nums[i]=nums[index] => nums[index] + nums[i] = target.
+
+👉 If it is present, return the current index+1 and the index of the number +1 in the map.
+
+Time Complexity: O(n)
+Space Complexity: O(n)
+
+🔷 Approach 1 and 2 is already implemented in Two Sum problem 
+
+📝Approach 3: Using Binary Search
+👉 Iterate through each element in the array.
+👉 For each element, calculate the complement (target - current element).
+👉 Use binary search to find the complement in the subarray to the right of the current element.
+👉 If the complement is found, return the indices of the current element and the complement.
+
+Time Complexity: O(n log n) due to binary search for each element.
+Space Complexity: O(1)
+
+📝Approach 4: Two Pointer Technique
+👉 Initialize two pointers, one at the start (left) and one at the end (right) of the array.
+👉 While the left pointer is less than the right pointer:
+   - Calculate the sum of the elements at the two pointers.
+   - If the sum equals the target, return the indices (left + 1, right + 1).
+   - If the sum is less than the target, move the left pointer to the right (left++) to increase the sum.
+   - If the sum is greater than the target, move the right pointer to the left (right--) to decrease the sum.
+
+Time Complexity: O(n)
+Space Complexity: O(1)

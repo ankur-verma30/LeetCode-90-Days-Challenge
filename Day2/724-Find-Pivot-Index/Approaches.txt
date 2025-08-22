@@ -1,0 +1,31 @@
+🧠 Problem Statment Link: https://leetcode.com/problems/find-pivot-index/
+
+❌ Brute Force:
+Use two nested loops to check every index in the array. For each index, calculate the sum of elements to its left and right. If they are equal, return the index.
+
+📝Approach 1: Using Prefix Sum with Two Arrays
+👉 Create two arrays, leftSum and rightSum, of the same length as the input array.
+👉 Populate leftSum such that leftSum[i] contains the sum of all elements to the left of index i.
+👉 Populate rightSum such that rightSum[i] contains the sum of all elements to the right of index i.
+👉 Iterate through the input array and check for each index if leftSum[i] equals rightSum[i]. If they are equal, return the index.
+
+Time Complexity: O(3n)
+Space Complexity: O(2n)
+
+📝Approach 2: Using Prefix Sum with Single Array
+👉 Create a single array, prefixSum, of the same length as the input array.
+👉 Populate prefixSum such that prefixSum[i] contains the sum of all elements from the start of the array up to index i.
+👉 Iterate through the input array and for each index i, check if prefixSum[i-1] (sum of elements to the left) equals prefixSum[n-1] - prefixSum[i] (sum of elements to the right). If they are equal, return the index.
+
+Time Complexity: O(2n)
+Space Complexity: O(n)
+
+📝Approach 3: Using Two Variables
+👉 Initialize two variables, leftSum and sum. Set leftSum to 0 and sum to the sum of all elements in the array.
+👉 Iterate through the array. For each index i:
+   - Subtract the current element from sum to get the right sum.
+   - Check if leftSum equals the right sum. If they are equal, return the index.
+   - Add the current element to leftSum to update it for the next iteration.
+
+Time Complexity: O(n)
+Space Complexity: O(1)
