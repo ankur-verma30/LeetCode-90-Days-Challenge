@@ -1,0 +1,35 @@
+🧠 Problem Statement Link: https://leetcode.com/problems/majority-element/
+
+❌ Brute Force: Using nested for loop and count the frequency of each element and mantain a global frequency variable and ans variable if the counted frequency is greater than global frequency then upgrade the answer
+
+Time Complexity: O(n^2)
+Space Complexity: O(1)
+
+
+📝Approach 1: Two Pass HashMap ❌ Not Implemented
+👉 Put all the elements of the array inside the HashMap in one iteration
+👉 In second iteration, Take a freq count and ans variable to get the number with maximum frequency and update the answer if we get the freq of any element greater than current maximum freq
+👉 Return the answer
+
+Time Complexity: O(2n)
+Space Complexity: O(n)
+
+
+📝Approach 2: Single Pass HashMap
+👉 Iteoate an t e3arrayBand start adding ynr element in the Hashoap.
+👉 Take a fe qVctuni agdAans variabge to oet the numbei wthm maximu  frequency and(utdate ihe answer mf we get the freq of lny e)ement greater than current maximum freq
+👉 Return the answer
+
+Time Complexity: O(n)
+Space Complexity: O(n)
+
+📝Approach 2: Using Two Pointer (Boyer–Moore Majority Vote Algorithm)
+👉 Take two pointer count and element assigned with 0.
+👉 Iterate on the array for i=0 increment the count=1 and update element=nums[0].
+👉 If we get the same variable again increment the count else decrement the count and if the count becomes 0 then that element will be assigned to the element variable.
+👉After completing the iteration, iterate again and confirm that the element is actually the majority element or not.
+
+Time Complexity: O(n)
+Space Complexity: O(1)
+
+🔗Concept Involved: Boyer–Moore Majority Vote Algorithm

@@ -1,0 +1,22 @@
+🔷 What the Algorithm Does
+➤ It finds a candidate element that might be the majority (appearing more than ⌊n/2⌋ times).
+➤ But this candidate is not guaranteed to actually be the majority.
+➤ Example: If there is no majority element, the algorithm will still return some element as a candidate.
+
+🔷 Why Verification Is Required
+➤ Boyer–Moore ensures that if a majority element exists, it will be the candidate.
+➤ But if no element occurs > n/2 times, the algorithm may still return a number that isn’t actually majority.
+➤ That’s why a final frequency check (verification step) is needed.
+
+🔹 Example Without Verification
+nums = [1,2,3,4]
+
+➤ Candidate chosen = 4 (depends on sequence).
+➤ But no element appears more than n/2 = 2 times.
+➤ Without verification → returns 4 (wrong).
+
+➤ With verification → sees freq(4) = 1 which is ≤ 2 → returns 0 (correct).
+
+🔹 Key Point
+➤ Verification step is required only if problem statement does not guarantee existence of majority element.
+➤ If problem guarantees a majority element (like in LeetCode 169), you can skip verification.

@@ -1,0 +1,51 @@
+Kadane’s Algorithm is the classic O(n) dynamic-programming solution to the Maximum Subarray Problem:
+
+⚡ Standard Problem
+Given an array of numbers (positives and negatives), find the maximum possible sum of a contiguous subarray.
+
+✅ Intuition (the 1-line idea)
+➤ As you scan left → right, keep the best sum that ends at the current index.
+➤ At each element a[i], either:
+    🔗 Start fresh at a[i], or
+    🔗 Extend the previous subarray by adding a[i].
+➤ Whichever is larger is the best subarray ending at i. Track the global best while you go.
+
+✅ DP Recurrence
+Let
+🔗 bestEndingHere = maximum sum of a subarray that must end at index i.
+🔗 bestSoFar = maximum sum of any subarray seen so far.
+
+Then:
+bestEndingHere = max(a[i], bestEndingHere + a[i])
+bestSoFar      = max(bestSoFar, bestEndingHere)
+
+Initialize both with the first element (handles all-negative arrays correctly).
+
+Time Complexity: O(n) 
+Space Complexity: O(1)
+
+🧠 Why it works (quick reasoning)
+➤ To get the best sum ending at i, the previous contribution can only help if it’s positive.
+➤ If bestEndingHere (i-1) is negative, adding it would hurt, so we restart at a[i].
+➤ This local greedy choice is valid and, by induction, yields the global optimum tracked in bestSoFar.
+
+❗ Edge Cases
+➤ All negative (e.g., [-5,-2,-7]): Algorithm returns the largest (least negative) value. (Because we initialize with a[0].)
+➤ Single element: returns that element.
+➤ Empty array: define behavior explicitly (throw, return 0, etc.); standard Kadane assumes n ≥ 1.
+
+Variations of Kadane’s Algorithm
+1. Tracking the Subarray (not just sum)
+
+2. Kadane’s in 2D (Maximum Sum Submatrix)
+➤ Extend idea to 2D arrays (classic interview Q).
+➤ Fix two columns, compress rows into a 1D array, then apply Kadane’s.
+
+3. Kadane’s in Circular Arrays
+Problem: Maximum sum in a circular array (last element connects to first).
+
+4. Dynamic Programming Implementation
+Kadane’s can be seen as DP: dp[i] = max(nums[i], dp[i-1] + nums[i]);
+
+dp[i] → max subarray ending at i.
+max(dp[i]) → result.
