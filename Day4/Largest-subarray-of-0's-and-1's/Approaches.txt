@@ -1,0 +1,22 @@
+🧠 Problem Statement Link: https://www.geeksforgeeks.org/problems/largest-subarray-of-0s-and-1s/1
+
+❌ Brute Force: Using two nested loops to check every pair of numbers in the array. find the maximum sum subarray and update the gloabl answer
+
+Time Complexity: O(n^2)
+Space Complexity: O(1)
+
+📝Approach 1: Prefix Sum + Hash Table (Target==0)
+👉 Iterate  in the array and make all 0's to -1.
+👉 Create a hash table of integer, integer key value pair.
+👉 It will store the current Sum along with its index. 
+👉 Take global variable sum and maxlen assigned with 0;
+👉 Iterate in the array:
+    ✅If sum== target(0) then update the maxlen=max(maxlen,i+1).
+    ✅If sum-nums[i] is present in the map, then update the maxlen=max(maxlen,i-map[sum-nums[i]]).
+    ✅Else map[sum]=i;
+👉 Return maxlen
+
+Time Complexity: O(n)
+Space Complexity: O(n) // hash table to store the Sum
+
+

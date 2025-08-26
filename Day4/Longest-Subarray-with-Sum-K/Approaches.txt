@@ -1,0 +1,23 @@
+🧠 Problem Statement Link: https://www.geeksforgeeks.org/problems/longest-sub-array-with-sum-k0809/1
+
+🔷 Similar Question : Extension of Longest Subarray with 0 sum
+
+❌ Brute Force: Using two nested loops to check every pair of numbers in the array. find the maximum sum subarray and update the gloabl answer
+
+Time Complexity: O(n^2)
+Space Complexity: O(1)
+
+📝Approach 1: Prefix Sum + Hash Table
+👉 Create a hash table of integer, integer key value pair.
+👉 It will store the current Sum along with its index. 
+👉 Take global variable sum and maxlen assigned with 0;
+👉 Iterate in the array:
+    ✅If sum== target then update the maxlen=max(maxlen,i+1).
+    ✅If sum-nums[i] is present in the map, then update the maxlen=max(maxlen,i-map[sum-nums[i]]).
+    ✅Else map[sum]=i;
+👉 Return maxlen
+
+Time Complexity: O(n)
+Space Complexity: O(n) // hash table to store the Sum
+
+
